@@ -87,7 +87,7 @@
                     <div class="tabela_niv">
                         <div class="tabela_niv_title">Programações</div>
                         <div class='aba' id='aba-1' onclick="ChamarDivGrade()">Grade de programação<span class='notification'>10</span></div>
-                        <div class='aba' id='aba-2' onclick="ChamarDivDeslig()">Brecha de programação<span class='notification'>6</span></div>
+                        <div class='aba' id='aba-2' onclick="ChamarDivDeslig()">Solicitações<span class='notification'>6</span></div>
                         <a class='btn btn-primary' data-toggle='modal' data-target='#modal-obras-programacao'>Solicitar demanda</a>
                         <div class='grade-prog'>
                             <!-- script que traz as funcionalidades do datatables -->
@@ -100,13 +100,13 @@
                                         '<tr>' +
                                         '<td>Full name:</td>' +
                                         '<td>' +
-                                        d.name +
+                                        d.servico +
                                         '</td>' +
                                         '</tr>' +
                                         '<tr>' +
                                         '<td>Extension number:</td>' +
                                         '<td>' +
-                                        d.extn +
+                                        d.status_prazo +
                                         '</td>' +
                                         '</tr>' +
                                         '<tr>' +
@@ -118,8 +118,8 @@
                                 }
                                 
                                 $(document).ready(function () {
-                                    var table = $('#example').DataTable({
-                                        ajax: 'arquivos/objects.txt', // colocar o link da api selecionando os dados do bd
+                                    var table = $('#programacoes').DataTable({
+                                        ajax: 'assets/programacoes.txt', // colocar o link da api selecionando os dados do bd
                                         columns: [
                                             {
                                                 className: 'dt-control',
@@ -127,10 +127,20 @@
                                                 data: null,
                                                 defaultContent: '',
                                             },
-                                            { data: 'name' },
-                                            { data: 'position' },
-                                            { data: 'office' },
-                                            { data: 'salary' },
+                                            { data: 'demanda' },
+                                            { data: 'segmento' },
+                                            { data: 'nota' },
+                                            { data: 'nome' },
+                                            { data: 'local_obra' },
+                                            { data: 'programador' },
+                                            { data: 'inicio' },
+                                            { data: 'fim' },
+                                            { data: 'etapa' },
+                                            { data: 'deslig' },
+                                            { data: 'tipo_si' },
+                                            { data: 'prazo_si' },
+                                            { data: 'data_prazo' },
+                                            { data: 'status_prog' }
                                         ],
                                         order: [[1, 'asc']],
                                     });
@@ -153,7 +163,7 @@
                                 });   
                             </script>
                             <!-- tabela com os dados das programacoes -->
-                            <table id="example" class="display" style="width:100%"> 
+                            <table id="programacoes" class="display" style="width:100%"> 
                                 <thead>
                                     <tr>
                                         <th></th>
@@ -171,7 +181,6 @@
                                         <th>Prazo de criação SI</th>
                                         <th>Prazo de execução</th>
                                         <th>Situação</th>
-                                        <th>Material</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -191,7 +200,6 @@
                                         <td>01/09/2022</td>
                                         <td>05/08/2022</td>
                                         <td>Programado</td>
-                                        <td>Baixado</td>
                                     </tr>
                                 </tbody>
                             </table>

@@ -44,4 +44,7 @@
     $json = json_encode($programacoes_array);
     file_put_contents('assets/programacoes.txt', $json);
     echo "Arquivo gerado com sucesso!";
+    echo "<pre>";
+    print_r($programacoes_array);
+    echo "</pre>";
 ?>

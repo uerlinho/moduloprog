@@ -146,7 +146,7 @@
                                     });
                                 
                                     // Add event listener for opening and closing details
-                                    $('#example tbody').on('click', 'td.dt-control', function () {
+                                    $('#programacoes tbody').on('click', 'td.dt-control', function () {
                                         var tr = $(this).closest('tr');
                                         var row = table.row(tr);
                                 
@@ -183,25 +183,25 @@
                                         <th>Situação</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tfoot>
                                     <tr>
-                                        <td></td>
-                                        <td>6000425910</td>
-                                        <td>Despesa</td>
-                                        <td>Não se aplica</td>
-                                        <td>PDM-ORDINSP-6000422713-TBM01Y6-TBM01Y6</td>
-                                        <td>Atalaia</td>
-                                        <td>WESLEY.SANTOS</td>
-                                        <td>30/07/2022 21:54:00</td>
-                                        <td>30/07/2022 21:54:00</td>
-                                        <td>1</td>
-                                        <td>Sim</td>
-                                        <td>Bloqueio</td>
-                                        <td>01/09/2022</td>
-                                        <td>05/08/2022</td>
-                                        <td>Programado</td>
+                                        <th></th>
+                                        <th>Demanda</th>
+                                        <th>Segmento</th>
+                                        <th>Nota</th>
+                                        <th>Nome</th>
+                                        <th>Município</th>
+                                        <th>Programador</th>
+                                        <th>Inicio</th>
+                                        <th>Fim</th>
+                                        <th>Etapa</th>
+                                        <th>Desligamento?</th>
+                                        <th>Tipo de SI</th>
+                                        <th>Prazo de criação SI</th>
+                                        <th>Prazo de execução</th>
+                                        <th>Situação</th>
                                     </tr>
-                                </tbody>
+                            </tfoot>
                             </table>
                         </div>
                         <div class='desligamento'>

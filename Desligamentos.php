@@ -76,7 +76,6 @@
                     <p>Área: <strong>Planejamento (<?php echo $usuario_logado_ATUACAO;?>)</strong></p>
                     <span> 
                         <?php
-                            //$id_usuario_logado = $_SESSION['ID'];
                             require "nav_Gestao_PROG.php";
                         ?>
                     </span>

@@ -119,7 +119,7 @@
                                 
                                 $(document).ready(function () {
                                     var table = $('#programacoes').DataTable({
-                                        ajax: 'assets/programacoes.txt', // colocar o link da api selecionando os dados do bd
+                                        ajax: 'programacoesAPI.php', // colocar o link da api selecionando os dados do bd
                                         columns: [
                                             {
                                                 className: 'dt-control',
@@ -201,7 +201,7 @@
                                         <th>Prazo de execução</th>
                                         <th>Situação</th>
                                     </tr>
-                            </tfoot>
+                                </thead>
                             </table>
                         </div>
                         <div class='desligamento'>

@@ -16,7 +16,7 @@
             }else{
                 header("Location: login.php");
             }
-            include "Programacoes_estilo.php";
+            include "assets/Programacoes_estilo.php";
         ?>
         <!-- configurações do calendario -->
         <link href='lib/main.css' rel='stylesheet' />

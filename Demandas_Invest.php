@@ -3,23 +3,27 @@
     <head>
         <meta charset="utf-8"/>
         <title>Bases | Relatório Gerencial</title>
-        <!-- links auxiliares para a construcao da pagina -->
+        <!-- link css para a criacao dos modais Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- link css para a criacao da tabela DataTables -->
         <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+        <!-- script js para criacao dos modais Bootstrap -->
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- script js para criacao da tabela DataTables -->
         <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+        <!-- script para manipulação da pagina -->
         <script src="js/AtualizacaoStatus_PDM.js" defer></script>
-        <!-- validacao login -->
         <?php
+            // validacao login + inclusão do arquivo do estilo da pagina
             include 'validacao_login.php';
             include 'assets/Programacoes_estilo.php';
         ?>
     </head>
     <body>
         <section class="principal">
-            <!-- sessão de navegação -->
+            <!-- menu de navegação -->
             <div class="menu">
                 <nav>
                     <?php include 'menu.php';?>
@@ -27,6 +31,7 @@
             </div>
             <div class="painel">
                 <div class="aba_rapida">
+                    <!-- area de navegacao rapida -->
                     <p>Área: <strong>Planejamento (<?php echo $usuario_logado_ATUACAO;?>)</strong></p>
                     <span> 
                         <?php
@@ -34,7 +39,8 @@
                         ?>
                     </span>
                 </div>
-                <div class="painel_principal">
+                <!-- area principal -->
+                <main class="painel_principal">
                     <div class="tabela_niv">
                         <div class="tabela_niv_title">Obras</div>
                         <script>
@@ -193,9 +199,10 @@
                             </tfoot>
                         </table>
                     </div>
-                </div>
+                </main>
             </div>
         </section>
+        <!-- rodape da pagina -->
         <?php include 'footer.php';?>
     </body>
 </html>

@@ -2,27 +2,18 @@
 <html>
     <head>
         <meta charset="utf-8"/>
-        <title>Planejamento | Calendário</title>
-        <!-- validacao login -->
+        <title>Planejamento | Calendário de demandas</title>
         <?php
-            session_start();
-            if (isset($_SESSION) && empty($_SESSION)==false){
-                
-                $usuario_logado = $_SESSION['USER'];
-                $id_usuario_logado = $_SESSION['ID'];
-                $usuario_logado_SETOR = $_SESSION['SETOR'];
-                $usuario_logado_REGIONAL = $_SESSION['REGIONAL'];
-                $usuario_logado_ATUACAO = $_SESSION['ATUACAO'];
-            }else{
-                header("Location: login.php");
-            }
-            include "assets/Programacoes_estilo.php";
+            // validacao login + inclusão do arquivo do estilo da pagina
+            include 'validacao_login.php';
+            include 'assets/Programacoes_estilo.php';
         ?>
         <!-- configurações do calendario -->
         <link href='lib/main.css' rel='stylesheet' />
-        <script src="js/AtualizacaoStatus_PDM.js" defer></script>
         <script src='lib/main.js'></script>
         <script src='lib/locales-all.js'></script>
+        <!-- script para manipulação da pagina -->
+        <script src="js/AtualizacaoStatus_PDM.js" defer></script>
         <script> // script do calendario
             document.addEventListener('DOMContentLoaded', function() {
                 var initialLocaleCode = 'pt-br';
@@ -79,57 +70,23 @@
     </head>
     <body>
         <section class="principal">
-            <!-- sessão de navegação -->
+            <!-- menu de navegação -->
             <div class="menu">
                 <nav>
-                    <?php
-                        echo "
-                        <ul class='sub-menu'>
-                            <li class='titulo_lista'>".$usuario_logado."</li>
-                            <div class='sub-sub-menu'>
-                                <li onclick='abrirSubMenu1()'>Bases</li>
-                                <div id='sub-sub-sub-menu-1'>
-                                    <li><a href=''>Relatório Gerencial</a></li>
-                                    <li><a href=''>Tabela B2</a></li>
-                                    <li><a href=''>Input Bases</a></li>
-                                </div>
-                                <li onclick='abrirSubMenu2()'>Planejamento</li>
-                                <div id='sub-sub-sub-menu-2'>
-                                    <li><a href=''>Programações</a></li>
-                                    <li><a href=''>Calendário</a></li>
-                                    <li><a href=''>Quadro de liberação</a></li>
-                                    <li><a href=''>Desligamentos</a></li>
-                                    <li><a href=''>Requisição de Material</a></li>
-                                </div>
-                                <li onclick='abrirSubMenu3()'>Encerramento</li>
-                                <div id='sub-sub-sub-menu-3'>
-                                    <li><a href=''>Obras programadas</a></li>
-                                    <li><a href=''>Investimento operacional</a></li>
-                                    <li><a href=''>DExPARA</a></li>
-                                    <li><a href=''>Pendências</a></li>
-                                </div>
-                                <li onclick='abrirSubMenu4()'>Relatórios</li>
-                                <div id='sub-sub-sub-menu-4'>
-                                    <li><a href=''>Programações</a></li>
-                                    <li><a href=''>Notificações</a></li>
-                                    <li><a href=''>Histórico</a></li>
-                                </div>    
-                            </div>
-                        </ul>
-                        ";
-                    ?>
+                    <?php include 'menu.php';?>
                 </nav>
             </div>
             <div class="painel">
-                <div class="aba_rapida">
+            <div class="aba_rapida">
+                    <!-- area de navegacao rapida -->
                     <p>Área: <strong>Planejamento (<?php echo $usuario_logado_ATUACAO;?>)</strong></p>
                     <span> 
                         <?php
-                            require "nav_Gestao_PROG.php";
+                            include 'Navegacao_rapida.php';
                         ?>
                     </span>
                 </div>
-                <div class="painel_principal">
+                <main class="painel_principal">
                     <div class="tabela_niv">
                         <div class="tabela_niv_title">Filtros</div>
                         <form>
@@ -154,13 +111,10 @@
                         <div class="tabela_niv_title">Calendário de programações</div>
                         <div id='calendar'></div>
                     </div>
-                </div>
+                </main>
             </div>
-            
         </section>
-        <footer>
-            <div id='parte-1'>...</div>
-            <div id='parte-2'>...</div>
-        </footer>
+        <!-- rodape da pagina -->
+        <?php include 'footer.php';?>
     </body>
 </html>

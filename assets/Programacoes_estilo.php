@@ -306,8 +306,9 @@ footer #parte-1{
     height: 80%;
     background-color: #838383;
 }
-footer #parte-1{
+footer #parte-2{
     flex:1;
-    background-color: #ccc;
+    text-align: center;
+    background-color: #f1f1f1;
 }
 </style>
